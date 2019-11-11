@@ -4,11 +4,21 @@ plugins {
     id "org.springframework.boot" version "2.0.6.RELEASE"
 }
 
+ext["springBootVersion"] = "2.0.6.RELEASE"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:2.0.6.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
 }
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello"
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test"
+])
