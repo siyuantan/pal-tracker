@@ -4,7 +4,10 @@ plugins {
     id "org.springframework.boot" version "2.0.6.RELEASE"
 }
 
-ext["springBootVersion"] = "2.0.6.RELEASE"
+//ext["springBootVersion"] = "2.0.6.RELEASE"
+ext {
+    springBootVersion = "2.0.6.RELEASE"
+}
 
 repositories {
     mavenCentral()
