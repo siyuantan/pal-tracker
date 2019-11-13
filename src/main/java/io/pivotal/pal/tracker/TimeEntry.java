@@ -9,11 +9,11 @@ public class TimeEntry {
     private long projectId;
     private long userId;
 
-    public Long getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -36,22 +36,22 @@ public class TimeEntry {
     private LocalDate date;
     private int hours;
 
-    public Long getProjectId() {
+    public long getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Long projectId) {
+    public void setProjectId(long projectId) {
         this.projectId = projectId;
     }
 
-    public TimeEntry(Long projectId, Long userId, LocalDate date, int hours) {
+    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
         this.projectId = projectId;
         this.userId = userId;
         this.date = date;
         this.hours = hours;
     }
 
-    public TimeEntry(Long timeEntryId, Long projectId, Long userId, LocalDate date, int hours) {
+    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate date, int hours) {
         this.id = timeEntryId;
         this.projectId = projectId;
         this.userId = userId;
@@ -63,11 +63,11 @@ public class TimeEntry {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long newId) {
+    public void setId(long newId) {
         this.id = newId;
     }
 
