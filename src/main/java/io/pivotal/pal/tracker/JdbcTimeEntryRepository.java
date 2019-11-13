@@ -48,17 +48,6 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
                 new Object[]{id}, eachRowExtractor);
     }
 
-    private final RowMapper<TimeEntry> rowMapper = (rs, rowNum) -> new TimeEntry(
-            rs.getLong("id"),
-            rs.getLong("project_id"),
-            rs.getLong("user_id"),
-            rs.getDate("date").toLocalDate(),
-            rs.getInt("hours")
-    );
-
-    private final ResultSetExtractor<TimeEntry> eachRowExtractor =
-            (rs) -> rs.next() ? rowMapper.mapRow(rs, 1) : null;
-
     @Override
     public List<TimeEntry> list() {
         return jdbcTemplate.query(
@@ -95,4 +84,15 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
             return statement;
         });
     }
+
+    private final RowMapper<TimeEntry> rowMapper = (rs, rowNum) -> new TimeEntry(
+            rs.getLong("id"),
+            rs.getLong("project_id"),
+            rs.getLong("user_id"),
+            rs.getDate("date").toLocalDate(),
+            rs.getInt("hours")
+    );
+
+    private final ResultSetExtractor<TimeEntry> eachRowExtractor =
+            (rs) -> rs.next() ? rowMapper.mapRow(rs, 1) : null;
 }
